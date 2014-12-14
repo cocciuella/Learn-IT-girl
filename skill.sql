@@ -1,0 +1,7 @@
+CREATE TABLE skill
+(
+  id INT NOT NULL AUTO_INCREMENT,
+  name VARCHAR(50),
+  level INT,
+  PRIMARY KEY (id)
+);
