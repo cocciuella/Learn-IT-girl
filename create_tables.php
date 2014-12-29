@@ -3,7 +3,7 @@ $servername = "localhost";
 $username = "";
 $password = "";
 
-try{
+try {
     $conn = new PDO("mysql:host:$servername; dbname=MySQL", $username, $password);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
@@ -16,6 +16,16 @@ try{
 
     $conn->exec($skill);
     echo "Table skill created successfully";
+}
+
+catch(PDOException $e)
+{
+    echo "Table skill:" . $e->getMessage();
+}
+
+try {
+    $conn = new PDO("mysql:host:$servername; dbname=MySQL", $username, $password);
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     $task = "CREATE TABLE task (
     id INT NOT NULL AUTO_INCREMENT,
@@ -30,6 +40,16 @@ try{
 
     $conn->exec($task);
     echo "Table task created successfully";
+}
+
+catch(PDOException $e)
+    {
+        echo "Table task:" . $e->getMessage();
+    }
+
+try {
+    $conn = new PDO("mysql:host:$servername; dbname=MySQL", $username, $password);
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     $person = "CREATE TABLE person (
     id INT NOT NULL AUTO_INCREMENT,
@@ -47,7 +67,7 @@ try{
     }
 catch(PDOException $e)
     {
-    echo "Table:" . $e->getMessage();
+    echo "Table person:" . $e->getMessage();
     }
 $conn = null;
 ?>
