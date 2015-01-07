@@ -1,7 +1,21 @@
 <?php
-$name = $level = "";
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $name = sanitize_input($_POST["name"]);
-    $level = sanitize_input($_POST["level"]);
-}
+$name = sanitize_input($paramaters["name"]);
+$level = sanitize_input($parameters["level"]);
+
+
+$stmt = $conn->prepare(
+    '
+        INSERT INTO skill
+            (name, level)
+            VALUES
+            (:name, :level);
+    '
+);
+
+$stmt->execute(
+    array(
+        ':name'  => $name,
+        ':level' => $level,
+    )
+);

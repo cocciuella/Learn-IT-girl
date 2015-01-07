@@ -1,7 +1,7 @@
 <?php
 
-$name = sanitize_input($_POST["name"]);
-$email = sanitize_input($_POST["email"]);
+$name = sanitize_input($parameters["name"]);
+$email = sanitize_input($parameters["email"]);
 
 
 $stmt = $conn->prepare(

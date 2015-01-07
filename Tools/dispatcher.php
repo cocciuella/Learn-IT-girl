@@ -1,18 +1,14 @@
 <?php
 
-function dispatch_action($action, $submit = false, $parameters = array())
+function dispatch_action($action, $type, $submit = false, $parameters = array())
 {
-    $type = array_shift($parameters);
+
     switch ($action) {
         default:
         case 'create':
             create_action($type, $submit, $parameters);
             break;
         case 'read':
-            /**
-             * @TODO: Implement reading (and displaying) either on single object (a person, a task, etc.) or a list of
-             *        items.
-             */
             read_action($type, $parameters);
             break;
         case 'update':
@@ -26,6 +22,7 @@ function dispatch_action($action, $submit = false, $parameters = array())
 
 function create_action($type, $submit = false, $parameters = array())
 {
+    global $conn;
     include('./Form/' . $type . '.php');
 
     if ($submit) {
@@ -35,9 +32,10 @@ function create_action($type, $submit = false, $parameters = array())
 
 function read_action($type, $parameters = array())
 {
-    /**
-     * @TODO: Create a View subfolder in which to store templates used to display our 3 types of data.
-     */
+    global $conn;
+    $stmt = $conn->query('SELECT * FROM ' . $type);
+    $results = $stmt ->fetchAll();
+    var_dump($results);
     include('./View/' . $type . '.php');
 }
 

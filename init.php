@@ -33,12 +33,12 @@ foreach ($files as $file) {
 
                 $conn->exec($createQuery);
 
-                echo 'Table ' . $tableName . ' created successfully' . "\n";
+               // echo 'Table ' . $tableName . ' created successfully' . "\n";
             } catch (PDOException $e) {
                 echo 'Table ' . $tableName . ': ' . $e->getMessage() . "\n";
             }
         } else if (DEBUG_DISPLAY) {
-            echo 'Skipped creating ' . $tableName . "\n";
+            // echo 'Skipped creating ' . $tableName . "\n";
         }
     }
 }

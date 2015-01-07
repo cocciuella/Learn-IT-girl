@@ -1,9 +1,9 @@
 <?php
 
 const DB_HOSTNAME = 'localhost';
-const DB_DATABASE = 'test';
-const DB_USERNAME = 'mihai-stancu';
-const DB_PASSWORD = 'D?C*-aByWKqHE7upe?Ja';
+const DB_DATABASE = 'match_it';
+const DB_USERNAME = '';
+const DB_PASSWORD = '';
 
 const DEBUG_DISPLAY = true;
 const DEBUG_ERROR_LEVEL = E_ALL;

@@ -10,7 +10,8 @@ include('./Tools/dispatcher.php');
 
 
 dispatch_action(
-    isset($_GET['type']) ? $_GET['type'] : null,
-    isset($_POST['submit']) ? (bool) $_POST['submit'] : null,
-    $_GET
+    isset($_GET['action']) ? $_GET['action'] : 'create',
+    isset($_GET['type']) ? $_GET['type'] : 'person',
+    isset($_POST['submit']) ? (bool) $_POST['submit'] : false,
+    $_REQUEST
 );
