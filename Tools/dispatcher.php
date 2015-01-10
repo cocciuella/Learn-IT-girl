@@ -53,7 +53,26 @@ function update_action($type, $submit, $parameters = array())
 
 function delete_action($type, $parameters = array())
 {
-    /**
-     * @TODO: Implement the deletion logic.
-     */
+
+    switch ($type) {
+        default:
+        case 'person':
+            function delete_person_action($parameters = array()){
+                global $conn;
+                $stmt = $conn->query('DELETE FROM person WHERE $parameters');
+                echo $parameters . 'deleted successfully';
+            };
+            break;
+
+        case 'skill':
+            function delete_skill_action(){
+
+            };
+            break;
+        case 'task':
+            function delete_task_action(){
+
+            };
+            break;
+    }
 }
