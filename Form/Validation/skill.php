@@ -1,6 +1,6 @@
 <?php
 
-$name = sanitize_input($paramaters["name"]);
+$name = sanitize_input($parameters["name"]);
 $level = sanitize_input($parameters["level"]);
 
 

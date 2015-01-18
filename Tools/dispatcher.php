@@ -59,19 +59,22 @@ function delete_action($type, $parameters = array())
         case 'person':
             function delete_person_action($parameters = array()){
                 global $conn;
-                $stmt = $conn->query('DELETE FROM person WHERE $parameters');
+                $conn->query('DELETE FROM person WHERE $parameters');
                 echo $parameters . 'deleted successfully';
             };
             break;
-
         case 'skill':
-            function delete_skill_action(){
-
+            function delete_skill_action($parameters = array()){
+                global $conn;
+                $conn->query('DELETE FROM skill WHERE $parameters');
+                echo $parameters . 'deleted successfully';
             };
             break;
         case 'task':
-            function delete_task_action(){
-
+            function delete_task_action($parameters = array()){
+                global $conn;
+                $conn->query('DELETE FROM task WHERE $parameters');
+                echo $parameters . 'deleted successfully';
             };
             break;
     }

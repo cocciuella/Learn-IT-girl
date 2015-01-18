@@ -11,7 +11,7 @@ include('./Tools/dispatcher.php');
 
 dispatch_action(
     isset($_GET['action']) ? $_GET['action'] : 'create',
-    isset($_GET['type']) ? $_GET['type'] : 'person',
+    isset($_GET['type']) ? $_GET['type'] : 'task',
     isset($_POST['submit']) ? (bool) $_POST['submit'] : false,
     $_REQUEST
 );

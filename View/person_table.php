@@ -3,10 +3,7 @@
         <th>Name</th>
         <th>E-mail</th>
     </tr>
-    <?php foreach($results as $result): ?>
-        <tr>
-            <td><?php echo $result['name']?></td>
-            <td><?php echo $result['email']?></td>
-        </tr>
-    <?php endforeach; ?>
+    <?php foreach($results as $result):
+        include('./person_row.php');
+    endforeach; ?>
 </table>

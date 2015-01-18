@@ -3,10 +3,7 @@
         <th>Name</th>
         <th>Level</th>
     </tr>
-    <?php foreach($results as $result): ?>
-    <tr>
-        <td><?php echo $result['name']?></td>
-        <td><?php echo $result['level']?></td>
-    </tr>
-<?php endforeach; ?>
+    <?php foreach($results as $result):
+        include('./skill_row.php');
+    endforeach; ?>
 </table>
