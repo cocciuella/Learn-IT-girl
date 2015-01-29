@@ -11,6 +11,12 @@ $stmt = $conn->prepare(
             VALUES
             (:name, :level);
     '
+    or
+    '
+        UPDATE skill
+        SET name=:name, level=:level
+        WHERE id;
+    '
 );
 
 $stmt->execute(

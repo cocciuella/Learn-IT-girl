@@ -5,6 +5,6 @@
         <th>Status</th>
     </tr>
     <?php foreach($results as $result):
-        include('.task_row.php');
+        include('./View/task_row.php');
     endforeach; ?>
 </table>

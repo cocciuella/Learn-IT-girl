@@ -4,6 +4,6 @@
         <th>Level</th>
     </tr>
     <?php foreach($results as $result):
-        include('./skill_row.php');
+        include('./View/skill_row.php');
     endforeach; ?>
 </table>

@@ -12,6 +12,12 @@ $stmt = $conn->prepare(
             VALUES
             (:title, :description, :status);
     '
+    or
+    '
+        UPDATE task
+        SET title=:title, description=:description, status=:status
+        WHERE id;
+    '
 );
 
 $stmt->execute(

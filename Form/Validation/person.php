@@ -11,6 +11,13 @@ $stmt = $conn->prepare(
             VALUES
             (:name, :email);
     '
+    or
+    '
+        UPDATE person
+        SET name=:name, email=:email
+        WHERE id;
+    '
+
 );
 
 $stmt->execute(

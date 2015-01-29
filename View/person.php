@@ -4,6 +4,6 @@
         <th>E-mail</th>
     </tr>
     <?php foreach($results as $result):
-        include('./person_row.php');
+        include('./View/person_row.php');
     endforeach; ?>
 </table>
