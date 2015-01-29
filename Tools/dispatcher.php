@@ -41,11 +41,12 @@ function read_action($type, $parameters = array())
 
 function update_action($type, $submit, $parameters = array())
 {
-    /**
-     * @TODO: Change the logic of the Form/Validation files to either do an SQL insert or an update.
-     */
     include('./Form/' . $type . '.php');
 
+    global $conn;
+    $id = $parameters['id'];
+    // $stmt = $conn->query('UPDATE ' . $type . 'SET ' 'WHERE ' . $id);
+    // read_action?
     if ($submit) {
         include('./Form/Validation/' . $type . '.php');
     }
@@ -53,29 +54,50 @@ function update_action($type, $submit, $parameters = array())
 
 function delete_action($type, $parameters = array())
 {
+    //if (!isset($parameters['id']) {
+    //    exit;
+    //}
+
+    $id = $parameters['id'];
 
     switch ($type) {
-        default:
         case 'person':
-            function delete_person_action($parameters = array()){
-                global $conn;
-                $conn->query('DELETE FROM person WHERE $parameters');
-                echo $parameters . 'deleted successfully';
-            };
+            delete_person_action($id);
             break;
         case 'skill':
-            function delete_skill_action($parameters = array()){
-                global $conn;
-                $conn->query('DELETE FROM skill WHERE $parameters');
-                echo $parameters . 'deleted successfully';
-            };
+            delete_skill_action($id);
             break;
         case 'task':
-            function delete_task_action($parameters = array()){
-                global $conn;
-                $conn->query('DELETE FROM task WHERE $parameters');
-                echo $parameters . 'deleted successfully';
-            };
+            delete_task_action($id);
             break;
-    }
+        }
+
+
 }
+function delete_person_action($id){
+    global $conn;
+    $x = $conn->query('DELETE FROM person WHERE id = ' . $id . ';');
+    if (!$x){
+        echo '#' . $id . ' deleted successfully';
+    }else{
+        echo '#' . $id . ' not deleted';
+    }
+};
+function delete_skill_action($id){
+    global $conn;
+    $x = $conn->query('DELETE FROM skill WHERE id = ' . $id . ';');
+    if (!$x){
+        echo '#' . $id . ' deleted successfully';
+    }else{
+        echo '#' . $id . ' not deleted';
+    }
+};
+function delete_task_action($id){
+    global $conn;
+    $x = $conn->query('DELETE FROM task WHERE id = ' . $id . ';');
+    if (!$x){
+        echo '#' . $id . ' deleted successfully';
+    }else{
+        echo '#' . $id . ' not deleted';
+    }
+};

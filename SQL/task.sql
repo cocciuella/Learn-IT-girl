@@ -4,6 +4,5 @@ CREATE TABLE task
   title VARCHAR(100),
   description TEXT,
   status VARCHAR(50),
-
   PRIMARY KEY(id)
 );
